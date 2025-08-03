@@ -1,0 +1,31 @@
+{
+  "name": "COMET: Seguridad en tu mano",
+  "short_name": "COMET",
+  "description": "Aplicación web para la comunicación y seguridad de la municipalidad de Alajuelita",
+  "version": "1.0.0",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3d7ad5",
+  "icons": [
+    {
+      "src": "/img/isotipo.png",
+      "sizes": "960x960",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/wide-1707-773.png",
+      "sizes": "1707x773",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/narrow-334-734.png",
+      "sizes": "334x734",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
+}
