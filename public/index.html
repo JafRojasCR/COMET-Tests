@@ -1,208 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COMET</title>
-    <link rel="manifest" href="./manifest.json">
-    <link rel="icon" href="./img/isotipo.png" type="image/png">
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" href="./img/isotipo.png" type="image/png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7fafc;
-            color: #1a202c;
-        }
-        .header-transition {
-            transition: all 0.3s ease-in-out;
-        }
-        .header-bg {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f7fafc;
+        color: #1a202c;
+      }
+      .header-transition {
+        transition: all 0.3s ease-in-out;
+      }
+      .header-bg {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
     </style>
-</head>
-<body class="bg-gray-50">
-
+  </head>
+  <body class="bg-gray-50">
     <!-- Dynamic Header -->
-    <header id="main-header" class="header-transition fixed top-0 left-0 w-full z-50 py-4 lg:py-6">
-        <div class="container mx-auto flex justify-between items-center px-4 lg:px-8">
-            <!-- Logo Section -->
-            <div class="flex items-center space-x-3">
-                <!-- Responsive Logo -->
-                <picture>
-                    <!-- Wide screen logo -->
-                    <source srcset="./img/isologo.png" media="(min-width: 768px)">
-                    <!-- Narrow screen logo -->
-                    <img src="./img/isotipo.png" alt="COMET Logo" class="h-10 lg:h-12 header-transition"
-                         onerror="this.onerror=null; this.src='https://placehold.co/48x48/F7FAFC/1A202C?text=L'">
-                </picture>
-            </div>
-            <!-- Navigation Links -->
-            <nav id="nav-menu" class="hidden md:flex space-x-6 lg:space-x-10 header-transition items-center text-gray-700">
-                <a href="#features" class="font-medium hover:text-blue-600 transition-colors">Características</a>
-                <a href="#about" class="font-medium hover:text-blue-600 transition-colors">Acerca de</a>
-                <a href="#contact" class="font-medium hover:text-blue-600 transition-colors">Contacto</a>
-                <a href="#" class="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg">Iniciar Sesión</a>
-            </nav>
+    <header
+      id="main-header"
+      class="header-transition fixed top-0 left-0 w-full z-50 py-4 lg:py-6"
+    >
+      <div
+        class="container mx-auto flex justify-between items-center px-4 lg:px-8"
+      >
+        <!-- Logo Section -->
+        <div class="flex items-center space-x-3">
+          <!-- Responsive Logo -->
+          <picture>
+            <!-- Wide screen logo -->
+            <source srcset="./img/isologo.png" media="(min-width: 768px)" />
+            <!-- Narrow screen logo -->
+            <img
+              src="./img/isotipo.png"
+              alt="COMET Logo"
+              class="h-10 lg:h-12 header-transition"
+              onerror="this.onerror=null; this.src='https://placehold.co/48x48/F7FAFC/1A202C?text=L'"
+            />
+          </picture>
         </div>
+        <!-- Navigation Links -->
+        <nav
+          id="nav-menu"
+          class="hidden md:flex space-x-6 lg:space-x-10 header-transition items-center text-gray-700"
+        >
+          <a
+            href="#features"
+            class="font-medium hover:text-blue-600 transition-colors"
+            >Características</a
+          >
+          <a
+            href="#about"
+            class="font-medium hover:text-blue-600 transition-colors"
+            >Acerca de</a
+          >
+          <a
+            href="#contact"
+            class="font-medium hover:text-blue-600 transition-colors"
+            >Contacto</a
+          >
+          <a
+            href="#"
+            class="px-6 py-2 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg"
+            >Iniciar Sesión</a
+          >
+        </nav>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="relative bg-white py-20 lg:py-32 overflow-hidden">
-        <div class="container mx-auto px-4 lg:px-8 text-center relative z-10">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                Protege tu Comunidad, Conéctate con Confianza
-            </h1>
-            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
-                COMET es la plataforma que te permite estar al tanto de la seguridad en tu vecindario, compartir información crucial y reaccionar rápidamente ante cualquier situación.
-            </p>
-            <a href="#" class="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-full text-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
-                Empezar Ahora
-            </a>
-        </div>
+      <div class="container mx-auto px-4 lg:px-8 text-center relative z-10">
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6"
+        >
+          Protege tu Comunidad, Conéctate con Confianza
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+          COMET es la plataforma que te permite estar al tanto de la seguridad
+          en tu vecindario, compartir información crucial y reaccionar
+          rápidamente ante cualquier situación.
+        </p>
+        <a
+          href="#"
+          class="inline-block px-10 py-4 bg-blue-600 text-white font-bold rounded-full text-lg shadow-lg hover:bg-blue-700 transition-transform transform hover:scale-105"
+        >
+          Empezar Ahora
+        </a>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="py-20 lg:py-24 bg-gray-50">
-        <div class="container mx-auto px-4 lg:px-8 text-center">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Nuestras Características</h2>
-            <p class="text-lg text-gray-600 max-w-xl mx-auto mb-12">
-                Descubre las herramientas que te ayudarán a mantener tu entorno seguro y conectado.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
-                    <div class="text-blue-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Alertas en Tiempo Real</h3>
-                    <p class="text-gray-600">
-                        Recibe notificaciones instantáneas sobre incidentes de seguridad y mantente informado al momento.
-                    </p>
-                </div>
-                <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
-                    <div class="text-blue-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h-4a4 4 0 01-4-4V7a4 4 0 014-4h4a4 4 0 014 4v9a4 4 0 01-4 4z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12h.01"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Comunidad Conectada</h3>
-                    <p class="text-gray-600">
-                        Comunícate con tus vecinos de forma segura para discutir temas de seguridad local.
-                    </p>
-                </div>
-                <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow transform hover:-translate-y-1">
-                    <div class="text-blue-500 mb-4">
-                        <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.322a4.5 4.5 0 010 6.364L12 20.91l-7.618-7.618a4.5 4.5 0 010-6.364h-.001z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Verificación de Incidentes</h3>
-                    <p class="text-gray-600">
-                        Reporta y verifica incidentes para mantener un registro preciso de lo que sucede en tu área.
-                    </p>
-                </div>
+      <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          Nuestras Características
+        </h2>
+        <p class="text-lg text-gray-600 max-w-xl mx-auto mb-12">
+          Descubre las herramientas que te ayudarán a mantener tu entorno seguro
+          y conectado.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow transform hover:-translate-y-1"
+          >
+            <div class="text-blue-500 mb-4">
+              <svg
+                class="w-12 h-12 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
             </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Alertas en Tiempo Real
+            </h3>
+            <p class="text-gray-600">
+              Recibe notificaciones instantáneas sobre incidentes de seguridad y
+              mantente informado al momento.
+            </p>
+          </div>
+          <!-- Feature 2 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow transform hover:-translate-y-1"
+          >
+            <div class="text-blue-500 mb-4">
+              <svg
+                class="w-12 h-12 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h-4a4 4 0 01-4-4V7a4 4 0 014-4h4a4 4 0 014 4v9a4 4 0 01-4 4z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 12h.01"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Comunidad Conectada
+            </h3>
+            <p class="text-gray-600">
+              Comunícate con tus vecinos de forma segura para discutir temas de
+              seguridad local.
+            </p>
+          </div>
+          <!-- Feature 3 -->
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow transform hover:-translate-y-1"
+          >
+            <div class="text-blue-500 mb-4">
+              <svg
+                class="w-12 h-12 mx-auto"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.322a4.5 4.5 0 010 6.364L12 20.91l-7.618-7.618a4.5 4.5 0 010-6.364h-.001z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">
+              Verificación de Incidentes
+            </h3>
+            <p class="text-gray-600">
+              Reporta y verifica incidentes para mantener un registro preciso de
+              lo que sucede en tu área.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-gray-300 py-12">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left">
-                <!-- Logo and Description -->
-                <div class="mb-6 md:mb-0">
-                    <img src="./img/dark-isologo.png" alt="COMET Logo" class="h-10 mx-auto md:mx-0 mb-2"
-                         onerror="this.onerror=null; this.src='https://placehold.co/48x48/1A202C/F7FAFC?text=L'">
-                    <p class="text-sm max-w-xs">
-                        Tu plataforma de seguridad comunitaria, conectando vecinos para un entorno más seguro.
-                    </p>
-                </div>
-                <!-- Navigation Links -->
-                <div class="mb-6 md:mb-0">
-                    <h4 class="font-bold text-gray-200 mb-2">Navegación</h4>
-                    <ul>
-                        <li><a href="#features" class="hover:text-blue-400 transition-colors">Características</a></li>
-                        <li><a href="#about" class="hover:text-blue-400 transition-colors">Acerca de</a></li>
-                        <li><a href="#contact" class="hover:text-blue-400 transition-colors">Contacto</a></li>
-                    </ul>
-                </div>
-                <!-- Legal Links -->
-                <div class="mb-6 md:mb-0">
-                    <h4 class="font-bold text-gray-200 mb-2">Legal</h4>
-                    <ul>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Términos de Servicio</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors">Política de Privacidad</a></li>
-                    </ul>
-                </div>
-                <!-- Social Media -->
-                <div>
-                    <h4 class="font-bold text-gray-200 mb-2">Síguenos</h4>
-                    <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="#" aria-label="Facebook" class="hover:text-blue-400 transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.5 0.5H1.5C0.94 0.5 0.5 0.94 0.5 1.5v21C0.5 23.06 0.94 23.5 1.5 23.5h11V14.5h-3v-4h3V7.5c0-3.1 1.89-4.8 4.67-4.8 1.33 0 2.47 0.1 2.8 0.14v3.25h-1.92c-1.51 0-1.8 0.72-1.8 1.77V10.5h3.5l-0.5 4h-3V23.5h6.29c0.56 0 1.01-0.44 1.01-1V1.5c0-0.56-0.45-1-1-1z"/></svg>
-                        </a>
-                        <a href="#" aria-label="Twitter" class="hover:text-blue-400 transition-colors">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.964 4.964 0 002.163-2.723 9.9 9.9 0 01-3.13 1.194 4.925 4.925 0 00-8.384 4.492A13.921 13.921 0 011.64 3.024a4.928 4.928 0 001.523 6.574A4.908 4.908 0 01.97 8.165v.063a4.926 4.926 0 003.957 4.827 4.9 4.9 0 01-2.227.084 4.927 4.927 0 004.604 3.421A9.854 9.854 0 01.378 20.354a13.908 13.908 0 007.545 2.209c9.053 0 13.99-7.496 13.99-13.989 0-.214-.005-.426-.013-.637A10.043 10.043 0 0024 4.59z"/></svg>
-                        </a>
-                    </div>
-                </div>
+      <div class="container mx-auto px-4 lg:px-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left"
+        >
+          <!-- Logo and Description -->
+          <div class="mb-6 md:mb-0">
+            <img
+              src="./img/dark-isologo.png"
+              alt="COMET Logo"
+              class="h-10 mx-auto md:mx-0 mb-2"
+              onerror="this.onerror=null; this.src='https://placehold.co/48x48/1A202C/F7FAFC?text=L'"
+            />
+            <p class="text-sm max-w-xs">
+              Tu plataforma de seguridad comunitaria, conectando vecinos para un
+              entorno más seguro.
+            </p>
+          </div>
+          <!-- Navigation Links -->
+          <div class="mb-6 md:mb-0">
+            <h4 class="font-bold text-gray-200 mb-2">Navegación</h4>
+            <ul>
+              <li>
+                <a
+                  href="#features"
+                  class="hover:text-blue-400 transition-colors"
+                  >Características</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="hover:text-blue-400 transition-colors"
+                  >Acerca de</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-blue-400 transition-colors"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Legal Links -->
+          <div class="mb-6 md:mb-0">
+            <h4 class="font-bold text-gray-200 mb-2">Legal</h4>
+            <ul>
+              <li>
+                <a href="#" class="hover:text-blue-400 transition-colors"
+                  >Términos de Servicio</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-blue-400 transition-colors"
+                  >Política de Privacidad</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Social Media -->
+          <div>
+            <h4 class="font-bold text-gray-200 mb-2">Síguenos</h4>
+            <div class="flex justify-center md:justify-start space-x-4">
+              <a
+                href="#"
+                aria-label="Facebook"
+                class="hover:text-blue-400 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22.5 0.5H1.5C0.94 0.5 0.5 0.94 0.5 1.5v21C0.5 23.06 0.94 23.5 1.5 23.5h11V14.5h-3v-4h3V7.5c0-3.1 1.89-4.8 4.67-4.8 1.33 0 2.47 0.1 2.8 0.14v3.25h-1.92c-1.51 0-1.8 0.72-1.8 1.77V10.5h3.5l-0.5 4h-3V23.5h6.29c0.56 0 1.01-0.44 1.01-1V1.5c0-0.56-0.45-1-1-1z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                aria-label="Twitter"
+                class="hover:text-blue-400 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.964 4.964 0 002.163-2.723 9.9 9.9 0 01-3.13 1.194 4.925 4.925 0 00-8.384 4.492A13.921 13.921 0 011.64 3.024a4.928 4.928 0 001.523 6.574A4.908 4.908 0 01.97 8.165v.063a4.926 4.926 0 003.957 4.827 4.9 4.9 0 01-2.227.084 4.927 4.927 0 004.604 3.421A9.854 9.854 0 01.378 20.354a13.908 13.908 0 007.545 2.209c9.053 0 13.99-7.496 13.99-13.989 0-.214-.005-.426-.013-.637A10.043 10.043 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm">
-                &copy; 2025 COMET. Todos los derechos reservados.
-            </div>
+          </div>
         </div>
+        <div class="mt-8 pt-8 border-t border-gray-700 text-center text-sm">
+          &copy; 2025 COMET. Todos los derechos reservados.
+        </div>
+      </div>
     </footer>
 
     <script>
-        const header = document.getElementById('main-header');
-        const navMenu = document.getElementById('nav-menu');
-        const logo = document.querySelector('#main-header img');
-        
-        // This function handles the dynamic header on scroll
-        function handleScroll() {
-            if (window.scrollY > 50) {
-                // When scrolled, shrink the header
-                header.classList.add('py-2', 'header-bg');
-                header.classList.remove('py-4', 'lg:py-6');
-                logo.classList.remove('h-10', 'lg:h-12');
-                logo.classList.add('h-8', 'lg:h-10');
-                if (window.innerWidth >= 768) {
-                    navMenu.classList.remove('flex');
-                    navMenu.classList.add('hidden');
-                }
-            } else {
-                // At the top of the page, return to original size
-                header.classList.remove('py-2', 'header-bg');
-                header.classList.add('py-4', 'lg:py-6');
-                logo.classList.remove('h-8', 'lg:h-10');
-                logo.classList.add('h-10', 'lg:h-12');
-                if (window.innerWidth >= 768) {
-                    navMenu.classList.remove('hidden');
-                    navMenu.classList.add('flex');
-                }
-            }
+      const header = document.getElementById("main-header");
+      const navMenu = document.getElementById("nav-menu");
+      const logo = document.querySelector("#main-header img");
+
+      // This function handles the dynamic header on scroll
+      function handleScroll() {
+        if (window.scrollY > 50) {
+          // When scrolled, shrink the header
+          header.classList.add("py-2", "header-bg");
+          header.classList.remove("py-4", "lg:py-6");
+          logo.classList.remove("h-10", "lg:h-12");
+          logo.classList.add("h-8", "lg:h-10");
+          if (window.innerWidth >= 768) {
+            navMenu.classList.remove("flex");
+            navMenu.classList.add("hidden");
+          }
+        } else {
+          // At the top of the page, return to original size
+          header.classList.remove("py-2", "header-bg");
+          header.classList.add("py-4", "lg:py-6");
+          logo.classList.remove("h-8", "lg:h-10");
+          logo.classList.add("h-10", "lg:h-12");
+          if (window.innerWidth >= 768) {
+            navMenu.classList.remove("hidden");
+            navMenu.classList.add("flex");
+          }
         }
-        
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', handleScroll); // Handle resize to re-evaluate state
-        window.onload = handleScroll; // Initial check on page load
+      }
+
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("resize", handleScroll); // Handle resize to re-evaluate state
+      window.onload = handleScroll; // Initial check on page load
     </script>
     <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.error('Service Worker registration failed:', error);
-                    });
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.error("Service Worker registration failed:", error);
             });
-        }
+        });
+      }
     </script>
-</body>
+
+    <script
+      src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"
+      defer
+    ></script>
+    <script
+      src="https://files.bpcontent.cloud/2025/08/03/01/20250803014738-8UGLS7ZL.js"
+      defer
+    ></script>
+  </body>
 </html>
