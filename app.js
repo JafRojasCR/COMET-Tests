@@ -19,3 +19,4 @@ app.use('/api/users', userRoutes); // Use the routes defined in userRoutes
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
+// NOTE: FOR TESTING I NEED TO DO "npm run dev" IN CONSOLE
