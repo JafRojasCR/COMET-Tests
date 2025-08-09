@@ -2,6 +2,8 @@ const CACHE_NAME = 'comet-cache-v1';
 const urlsToCache = [
   '/', // o tu start_url
   '/index.html',
+  '/login.html',
+  '/register.html',
   '/manifest.json', // Asegúrate de tener un manifest.json
 ];
 // Evento 'install': se dispara cuando el service worker es instalado
