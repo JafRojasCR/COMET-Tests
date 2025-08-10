@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Upload with GPS</title>
+        <link rel="manifest" href="./manifest.json" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="">
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col items-center py-6">
+    <!-- Upload Form -->
+    <div
+      id="uploadCard"
+      class="bg-white w-full max-w-sm h-[550px] rounded-2xl shadow-lg p-5 transform scale-95 opacity-0 transition-all duration-500 ease-out"
+    >
+      <!-- Close Button -->
+      <div class="flex justify-end">
+        <button
+          id="closeForm"
+          class="text-gray-400 hover:text-red-500 text-2xl font-bold"
+        >
+          &times;
+        </button>
+      </div>
+
+      <!-- Image Upload Area -->
+      <div
+        id="imageContainer"
+        class="relative w-full h-44 border-2 border-dashed border-gray-300 rounded-xl overflow-hidden cursor-pointer hover:bg-gray-50 transition"
+      >
+        <label
+          for="postImage"
+          class="w-full h-full flex flex-col items-center justify-center"
+        >
+          <span id="uploadIcon" class="text-4xl text-gray-400">+</span>
+          <span id="uploadText" class="text-gray-500 mt-2"
+            >Añade una imagen</span
+          >
+        </label>
+        <input id="postImage" type="file" accept="image/*" class="hidden" />
+
+        <!-- Preview Image -->
+        <img
+          id="previewImage"
+          class="absolute inset-0 w-full h-full object-cover hidden"
+        />
+
+        <!-- Replace Button -->
+        <button
+          id="replaceImageBtn"
+          class="hidden absolute bottom-2 right-2 bg-black/60 text-white text-sm px-3 py-1 rounded-lg hover:bg-black/80"
+        >
+          Reemplazar
+        </button>
+      </div>
+
+      <!-- Title Input -->
+      <input
+        id="postTitle"
+        type="text"
+        placeholder="Título de tu publicación"
+        class="w-full mt-5 border-b-2 border-gray-300 focus:border-blue-500 outline-none text-lg py-1"
+      />
+
+      <!-- Description -->
+      <textarea
+        id="postDescription"
+        placeholder="¿Qué pasó?"
+        class="w-full mt-4 p-3 border rounded-xl resize-none focus:ring-2 focus:ring-blue-300 outline-none h-32"
+      ></textarea>
+
+      <!-- Publish Button -->
+      <button
+        id="publishPost"
+        class="w-full mt-4 bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl shadow-md transition transform hover:scale-105"
+      >
+        Publicar
+      </button>
+    </div>
+
+    <!-- Posts Section -->
+    <div id="postsContainer" class="w-full max-w-xl mt-8 space-y-4"></div>
+
+    <script>
+      const uploadCard = document.getElementById("uploadCard");
+      const previewImage = document.getElementById("previewImage");
+      const uploadIcon = document.getElementById("uploadIcon");
+      const uploadText = document.getElementById("uploadText");
+      const replaceImageBtn = document.getElementById("replaceImageBtn");
+      const postImage = document.getElementById("postImage");
+
+      // Variables for location
+      let userLat = null;
+      let userLng = null;
+
+      // Request GPS on page load
+      window.addEventListener("DOMContentLoaded", () => {
+        // Animate card in
+        setTimeout(() => {
+          uploadCard.classList.remove("scale-95", "opacity-0");
+          uploadCard.classList.add("scale-100", "opacity-100");
+        }, 100);
+
+        // Get location
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              userLat = pos.coords.latitude;
+              userLng = pos.coords.longitude;
+              console.log(`📍 GPS Coordinates: ${userLat}, ${userLng}`);
+            },
+            (err) => {
+              console.error("Error getting location:", err.message);
+            }
+          );
+        } else {
+          console.error("Geolocation not supported.");
+        }
+      });
+
+      // Close form
+      document.getElementById("closeForm").addEventListener("click", () => {
+        uploadCard.classList.add("opacity-0", "scale-95");
+        setTimeout(() => (uploadCard.style.display = "none"), 300);
+      });
+
+      // Image selection
+      postImage.addEventListener("change", () => {
+        if (postImage.files.length > 0) {
+          const file = postImage.files[0];
+          previewImage.src = URL.createObjectURL(file);
+          previewImage.classList.remove("hidden");
+          replaceImageBtn.classList.remove("hidden");
+          uploadIcon.classList.add("hidden");
+          uploadText.classList.add("hidden");
+        }
+      });
+
+      // Replace image
+      replaceImageBtn.addEventListener("click", () => {
+        postImage.click();
+      });
+
+      // Publish post
+      document.getElementById("publishPost").addEventListener("click", () => {
+        const title = document.getElementById("postTitle").value;
+        const desc = document.getElementById("postDescription").value;
+
+        if (!title || !desc) {
+          alert("Por favor, llena todos los campos.");
+          return;
+        }
+
+        // Constants for gathered data
+        const POST_TITLE = title;
+        const POST_DESCRIPTION = desc;
+        const POST_IMAGE_FILE =
+          postImage.files.length > 0 ? postImage.files[0] : null;
+        const POST_LAT = userLat;
+        const POST_LNG = userLng;
+
+        console.log("📝 Data to send:");
+        console.log({
+          POST_TITLE,
+          POST_DESCRIPTION,
+          POST_IMAGE_FILE,
+          POST_LAT,
+          POST_LNG,
+        });
+
+        // Example: display post in feed
+        const postsContainer = document.getElementById("postsContainer");
+        const postCard = document.createElement("div");
+        postCard.className = "bg-white rounded-xl shadow p-4";
+
+        if (POST_IMAGE_FILE) {
+          const img = document.createElement("img");
+          img.className = "w-full rounded-lg mb-3";
+          img.src = URL.createObjectURL(POST_IMAGE_FILE);
+          postCard.appendChild(img);
+        }
+
+        const h3 = document.createElement("h3");
+        h3.className = "font-bold text-lg";
+        h3.textContent = POST_TITLE;
+
+        const p = document.createElement("p");
+        p.className = "text-gray-600 mt-1";
+        p.textContent = POST_DESCRIPTION;
+
+        const coords = document.createElement("p");
+        coords.className = "text-xs text-gray-400 mt-2";
+        coords.textContent = `Ubicación: ${POST_LAT ?? "Desconocida"}, ${
+          POST_LNG ?? "Desconocida"
+        }`;
+
+        postCard.appendChild(h3);
+        postCard.appendChild(p);
+        postCard.appendChild(coords);
+
+        postsContainer.prepend(postCard);
+
+        // Reset form
+        document.getElementById("postTitle").value = "";
+        document.getElementById("postDescription").value = "";
+        postImage.value = "";
+        previewImage.classList.add("hidden");
+        replaceImageBtn.classList.add("hidden");
+        uploadIcon.classList.remove("hidden");
+        uploadText.classList.remove("hidden");
+      });
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.error("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

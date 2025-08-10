@@ -3,6 +3,7 @@ const urlsToCache = [
   '/', // o tu start_url
   '/index.html',
   '/login.html',
+  '/posts.html',
   '/register.html',
   '/manifest.json', // Asegúrate de tener un manifest.json
 ];
